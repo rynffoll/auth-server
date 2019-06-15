@@ -1,0 +1,37 @@
+* Get token
+
+#+TITLE: Get token
+#+begin_src restclient
+:auth := (format "Basic %s" (base64-encode-string (format "%s:%s" "client" "secret")))
+
+POST http://localhost:8080/oauth/token
+Content-Type: application/x-www-form-urlencoded
+Authorization: :auth
+
+grant_type=client_credentials
+
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJub25lIl0sImV4cCI6MTU2MDY3NDAyOSwiYXV0aG9yaXRpZXMiOlsiVVNFUiJdLCJqdGkiOiJhMGY2OTQ4MC1jNzgxLTQzYWMtOTYxNC0wZjBlMzU5MWM5YTQiLCJjbGllbnRfaWQiOiJjbGllbnQifQ.dus44ZQvbwFgChG7L3TOaoQ1ijW-ViOyB7Z_nsgdMQYt1K-4Gr6_imHaEjCAzSWHi-3hc_g39o-kMK9D8tXon7nivMD7EI6mMpnq20YfT9hxf-v0AegDymgJ-JTnDKUc8c6Nja07A0Rj-_wfKSWDqTZH7AAr8_sq8tOblpV_DuIphdiBXMFFAMxaeOaVn_vxFykN9nctMlF6JBdgr-z28QPX7--Tur5qrrRfFskbQxUns5ocvgNehxWbO86PdM0sf1EEIoSJqBJoZl5lflHyOYOgKXpZe942tQpRfmcBjeV_n3MHv4LkFdeHplAW0Wh17O0Z8nZ2C1Dv9fywl_sk5Q",
+  "token_type": "bearer",
+  "expires_in": 43199,
+  "scope": "none",
+  "jti": "a0f69480-c781-43ac-9614-0f0e3591c9a4"
+}
+// POST http://localhost:8080/oauth/token
+// HTTP/1.1 200 
+// Set-Cookie: JSESSIONID=0F21CA371DA61B443D5544259AD205BB; Path=/; HttpOnly
+// Pragma: no-cache
+// Cache-Control: no-store
+// X-Content-Type-Options: nosniff
+// X-XSS-Protection: 1; mode=block
+// X-Frame-Options: DENY
+// Content-Type: application/json;charset=UTF-8
+// Transfer-Encoding: chunked
+// Date: Sat, 15 Jun 2019 20:33:49 GMT
+// Request duration: 27.626293s
+#+END_SRC
+
