@@ -51,7 +51,7 @@ insert into auth_server.endpoints
 values
 (
     0,
-    '*',
+    '.*',
     '/api/v1/test',
     'api-server'
 );

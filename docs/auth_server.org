@@ -4,7 +4,7 @@
 #+begin_src restclient
 :auth := (format "Basic %s" (base64-encode-string (format "%s:%s" "client" "secret")))
 
-POST http://localhost:8080/oauth/token
+POST http://localhost:8080/oauth/token?uri=/api/v1/test
 Content-Type: application/x-www-form-urlencoded
 Authorization: :auth
 
@@ -15,15 +15,16 @@ grant_type=client_credentials
 #+RESULTS:
 #+BEGIN_SRC js
 {
-  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJub25lIl0sImV4cCI6MTU2MDY3NDAyOSwiYXV0aG9yaXRpZXMiOlsiVVNFUiJdLCJqdGkiOiJhMGY2OTQ4MC1jNzgxLTQzYWMtOTYxNC0wZjBlMzU5MWM5YTQiLCJjbGllbnRfaWQiOiJjbGllbnQifQ.dus44ZQvbwFgChG7L3TOaoQ1ijW-ViOyB7Z_nsgdMQYt1K-4Gr6_imHaEjCAzSWHi-3hc_g39o-kMK9D8tXon7nivMD7EI6mMpnq20YfT9hxf-v0AegDymgJ-JTnDKUc8c6Nja07A0Rj-_wfKSWDqTZH7AAr8_sq8tOblpV_DuIphdiBXMFFAMxaeOaVn_vxFykN9nctMlF6JBdgr-z28QPX7--Tur5qrrRfFskbQxUns5ocvgNehxWbO86PdM0sf1EEIoSJqBJoZl5lflHyOYOgKXpZe942tQpRfmcBjeV_n3MHv4LkFdeHplAW0Wh17O0Z8nZ2C1Dv9fywl_sk5Q",
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJST0xFX1VTRVIiXSwiZXhwIjoxNTYwNzM1MTM2LCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwianRpIjoiYzgyMjc0ZTctM2NlNy00MDM4LWFkODItMmFhOTI5Mjg4ZDQzIiwiY2xpZW50X2lkIjoiY2xpZW50In0.lhDFhoWhjoeYWgzBX3fSKFULBFTWVhnh2c4HsJG995mTM_TQIGgEnniGQPeun32Nj2dpEDRqOvpSSRLb6XG5qpxvLv0M_qiogGwoQNhVEX0WHq7Ep1EA5OcDLS6dJgmLzudvQaNGVL-QNVdX6hZaX4xhPfIOxA4jppn9SEKo_Nbi0gjIEQR_1ZlqNZmhfunVsCLnupBvclnOdKIPwqcaxXtmVDZouyOi9TP0TKMam95SnyF0jA0FF7Soo_TuHdb7JSVCIkmwy79avddy5fW9XB38Y72ip1pmv_O95ys79rkrLRbRjJz6kgR_6jEatzaftAq6Oxvc7D6JT4lCy1DqPw",
   "token_type": "bearer",
-  "expires_in": 43199,
-  "scope": "none",
-  "jti": "a0f69480-c781-43ac-9614-0f0e3591c9a4"
+  "expires_in": 43193,
+  "scope": "ROLE_USER",
+  "jti": "c82274e7-3ce7-4038-ad82-2aa929288d43",
+  "uri": "/api/v1/test",
+  "service": "api-server"
 }
-// POST http://localhost:8080/oauth/token
+// POST http://localhost:8080/oauth/token?uri=/api/v1/test
 // HTTP/1.1 200 
-// Set-Cookie: JSESSIONID=0F21CA371DA61B443D5544259AD205BB; Path=/; HttpOnly
 // Pragma: no-cache
 // Cache-Control: no-store
 // X-Content-Type-Options: nosniff
@@ -31,7 +32,7 @@ grant_type=client_credentials
 // X-Frame-Options: DENY
 // Content-Type: application/json;charset=UTF-8
 // Transfer-Encoding: chunked
-// Date: Sat, 15 Jun 2019 20:33:49 GMT
-// Request duration: 27.626293s
+// Date: Sun, 16 Jun 2019 13:32:23 GMT
+// Request duration: 16.195695s
 #+END_SRC
 

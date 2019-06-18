@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -19,5 +20,6 @@ public class Role {
     private Date updateDate;
     private boolean locked;
 
-    private Set<Endpoint> endpoints;
+    @Builder.Default
+    private Set<Endpoint> endpoints = new HashSet<>();
 }
